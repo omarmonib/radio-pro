@@ -15,8 +15,7 @@ Radio Pro is a tech platform designed to provide a comprehensive community for t
 - **Frontend**: React.js, CSS3, HTML5
 - **Mobile**: React Native, Expo
 - **Backend (optional)**: The project can be extended to include Node.js and Express.js.
-- **Version Control**: GitHub for version management and collaboration.
-
+  
 ## Next Steps
 - Enhance search and chat features.
 - Develop an admin dashboard.
