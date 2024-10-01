@@ -1,0 +1,41 @@
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ECF2E7;
+}
+
+main {
+  flex: 1;
+  padding: 1.25rem;
+  width: 75vw;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 0.9375rem;
+}
+
+.notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #099940;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 48rem) {
+  .page-layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding: 0.9375rem;
+  }
+}

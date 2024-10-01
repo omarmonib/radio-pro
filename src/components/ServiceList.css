@@ -1,0 +1,60 @@
+
+.service {
+    background-color: #FCFFFC;
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+  }
+
+.service-container-wrapper {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #66CC66;
+    background-color: #ECF2E7;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    z-index: 1;
+  }
+  
+  .scroll-button:hover {
+    color: #2D704A;
+  }
+  
+  .scroll-button.left {
+    left: 0;
+  }
+  
+  .scroll-button.right {
+    right: 0;
+  }
+  
+  .service-container::-webkit-scrollbar {
+    display: none; /* إخفاء شريط التمرير */
+  }
+
+.service h2 {
+    padding-right: 3rem;
+    margin: 1rem;
+}
+  
