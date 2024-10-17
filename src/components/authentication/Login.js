@@ -4,34 +4,30 @@ import '../../styles/auth.css';
 import logoImage from '../../assets/icons/logo.png';
 
 const Login = ({ onLogin }) => {
-    // State to manage user credentials and "remember me" option
     const [credentials, setCredentials] = useState({ username: '', password: '' });
     const [rememberMe, setRememberMe] = useState(false);
     const navigate = useNavigate();
 
-    // Handle input changes for username and password
     const handleChange = (e) => {
         const { name, value } = e.target;
         setCredentials(prev => ({ ...prev, [name]: value }));
     };
 
-    // Handle "Remember Me" checkbox change
     const handleRememberMeChange = (e) => {
         setRememberMe(e.target.checked);
     };
 
-    // Handle form submission and login logic
     const handleSubmit = (e) => {
         e.preventDefault();
         const { username, password } = credentials;
 
-        // Basic validation (replace with real authentication logic)
         if (username === 'omar' && password === '123456') {
             if (rememberMe) {
-                localStorage.setItem('isLoggedIn', 'true'); // Save login state if "Remember Me" is checked
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userName', username);  // تخزين اسم المستخدم في localStorage
             }
-            onLogin(); // Trigger login action
-            navigate('/'); // Navigate to the home page after login
+            onLogin(username);  // تمرير اسم المستخدم إلى App.js
+            navigate('/');
         } else {
             console.log('Invalid login');
         }

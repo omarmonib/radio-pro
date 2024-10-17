@@ -6,72 +6,71 @@ import ForgotPassword from '../components/authentication/ForgotPassword';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import Notification from '../components/common/Notification';
-import ServiceList from '../components/ServiceList';
+import ServiceList from '../components/Service';
 import Posts from '../components/Posts';
 import '../styles/App.css';
 
 const App = () => {
-  const [notificationMessage, setNotificationMessage] = useState(null); // Notification state
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Login state
+  const [notificationMessage, setNotificationMessage] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState('');
 
-  // Check login status on load
   useEffect(() => {
     const savedLoginStatus = localStorage.getItem('isLoggedIn') === 'true';
+    const savedUserName = localStorage.getItem('userName') || '';
     setIsLoggedIn(savedLoginStatus);
+    setLoggedInUser(savedUserName);
   }, []);
 
-  // Hide notifications after 3 seconds
   useEffect(() => {
     if (notificationMessage) {
       const timer = setTimeout(() => setNotificationMessage(null), 3000);
-      return () => clearTimeout(timer); // Clear the timer
+      return () => clearTimeout(timer);
     }
   }, [notificationMessage]);
 
-  // Handle login
-  const handleLogin = () => {
-    localStorage.setItem('isLoggedIn', 'true'); // Save login status
-    setIsLoggedIn(true); // Set login state to true
+  const handleLogin = (userName) => {
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userName', userName);
+    setIsLoggedIn(true);
+    setLoggedInUser(userName);
   };
 
-  // Handle logout
   const handleLogout = () => {
-    localStorage.setItem('isLoggedIn', 'false'); // Remove login status
-    setIsLoggedIn(false); // Set login state to false
+    localStorage.setItem('isLoggedIn', 'false');
+    localStorage.removeItem('userName');
+    setIsLoggedIn(false);
+    setLoggedInUser('');
   };
 
   return (
     <div className="page-layout">
-      {/* Show header if logged in */}
       {isLoggedIn && <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />}
-
-      <main>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              isLoggedIn ? (
-                // Show content if logged in
-                <>
-                  <ServiceList />
-                  <Posts onPostAdded={() => setNotificationMessage('New post added!')} />
-                </>
-              ) : (
-                // Show login if not logged in
-                <Login onLogin={handleLogin} />
-              )
-            }
-          />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-        </Routes>
-      </main>
-
-      {/* Show footer if logged in */}
+      <div className="main-container">
+        {isLoggedIn && <aside className="sidebar">Most Engaging Topics</aside>}
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                isLoggedIn ? (
+                  <Posts 
+                    userName={loggedInUser} 
+                    onPostAdded={() => setNotificationMessage('New post added!')} 
+                  />
+                ) : (
+                  <Login onLogin={handleLogin} />
+                )
+              }
+            />
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+          </Routes>
+        </main>
+        {isLoggedIn && <ServiceList />}
+      </div>
       {isLoggedIn && <Footer />}
-
-      {/* Show notification if message exists */}
       {notificationMessage && (
         <Notification
           message={notificationMessage}

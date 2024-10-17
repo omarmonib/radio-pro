@@ -5,11 +5,22 @@
   background-color: #ECF2E7;
 }
 
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+aside.sidebar {
+  width: 25vw;
+  margin: 1.5rem;
+  border-radius: 10px;
+}
+
 main {
   flex: 1;
   padding: 1.25rem;
-  width: 75vw;
-  margin: auto;
+  width: 50vw;
+  margin-right: 20px;
   margin-top: 1rem;
 }
 

@@ -1,42 +1,44 @@
+/* General Header Styling */
 header {
   width: 100vw;
-  height: 53px;
-  box-sizing: border-box;
-  padding: 0.5rem 1.25rem;
-  background-color: #FCFFFC;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #C8E6B8;
+}
+
+/* Header Content */
+.header-content {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: solid 1px #C8E6B8;
+  padding: 0.5rem 1rem;
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-grow: 1;
-}
-
+/* Logo Section */
 .logo-container {
   display: flex;
   align-items: center;
-  margin-right: auto;
 }
 
-header img {
+.logo-container img {
   max-width: 8rem;
   height: auto;
-  margin: 0 2rem;
 }
 
-
+/* Search Bar Styling */
+/* Container for search bar */
 .search-bar-container {
   position: relative;
   display: flex;
   align-items: center;
 }
 
+/* Style for search bar (input) */
 .search-bar {
   padding: 0.5rem;
   padding-right: 2.5rem;
@@ -52,6 +54,7 @@ header img {
   outline: none;
 }
 
+/* Style for the search icon inside the search bar */
 .search-icon {
   position: absolute;
   right: 1rem;
@@ -60,39 +63,51 @@ header img {
   cursor: pointer;
 }
 
+/* For mobile view */
+@media (max-width: 48rem) {
+  .search-bar {
+    width: 100%;
+    max-width: 18.75rem;
+  }
+}
+
+
+/* Navigation Links Styling */
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
-.nav-links a {
+.nav-links a, .nav-links {
   color: #333;
-  text-decoration: none;
   font-size: 1rem;
+}
+
+.nav-links a, .nav-links .logout-button {
+  text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   transition: background-color 0.3s ease;
 }
 
-.nav-links a:hover {
-  background-color : #f0f0f0;
+.nav-links a:hover, .nav-links .logout-button:hover {
+  background-color: #f0f0f0;
 }
 
-.nav-links .logout-link {
+.logout-button {
+  background-color: transparent;
   cursor: pointer;
   color: red;
 }
 
-.nav-links .logout-link:hover {
-  background-color: #f0f0f0;
-}
-
-@media (max-width: 48rem) {
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
   .header-content {
     flex-direction: column;
     align-items: center;
+    padding: 1rem 0.5rem;
   }
 
   .search-bar-container {
@@ -102,7 +117,6 @@ header img {
   .nav-links {
     flex-direction: column;
     margin-top: 0.625rem;
-    align-items: center;
     width: 100%;
   }
 
