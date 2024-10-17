@@ -1,14 +1,14 @@
-.signup-page {
+.auth-page {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    height: auto;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     font-family: 'Arial', sans-serif;
     padding: 1rem;
 }
 
-.signup-container {
+.auth-container {
     padding: 2.5rem 3rem;
     border-radius: 8px;
     box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
@@ -17,51 +17,43 @@
     text-align: center;
 }
 
-.signup-image {
+.auth-image {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin: 2rem 0 5rem;
     width: 100%;
     max-width: 250px;
 }
 
-.error-message {
-    color: red;
-    margin: 1px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.signup-image img {
+.auth-image img {
     width: 100%;
     max-height: 150px;
     object-fit: cover;
 }
 
-.signup-title {
-    font-size: 2rem;
+.auth-title {
+    font-size: 1.5rem;
     color: #2EA673;
     margin-bottom: 1.5rem;
 }
 
-.signup-input {
+.auth-input {
     width: 100%;
     padding: 12px;
-    margin-top: 1rem;
+    margin: 1rem 0;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.3s;
 }
 
-.signup-input:focus {
+.auth-input:focus {
     border-color: #2EA673;
     outline: none;
 }
 
-.signup-button {
+.auth-button {
     width: 100%;
     background-color: #2EA673;
     color: white;
@@ -71,74 +63,69 @@
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 5px;
 }
 
-.signup-button:hover {
+.auth-button:hover {
     background-color: #249f5c;
 }
 
-.signup-links {
-    margin-top: 1.5rem;
-}
-
 .link-button {
-    color: #2EA673;
-    background: none;
-    border: none;
+    margin-top: 0.9rem;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: color 0.3s;
+    color: #2EA673;
 }
 
 .link-button:hover {
     text-decoration: underline;
 }
 
+.message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.success-message {
+    color: green;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
-    .signup-page {
+    .auth-page {
         padding: 0 1rem;
     }
 
-    .signup-title {
-        font-size: 1.8rem;
-    }
-
-    .signup-container {
+    .auth-container {
         padding: 2rem;
     }
 
-    .signup-input, .signup-button {
-        padding: 0.8rem;
-    }
-
-    .signup-image {
+    .auth-image {
         max-width: 200px;
     }
 
-    .signup-image img {
+    .auth-image img {
         max-height: 120px;
     }
 }
 
 @media (max-width: 480px) {
-    .signup-title {
-        font-size: 1.5rem;
-    }
-
-    .signup-container {
+    .auth-container {
         width: 95%;
     }
 
-    .signup-input, .signup-button {
+    .auth-input, .auth-button {
         padding: 0.6rem;
     }
 
-    .signup-image {
+    .auth-image {
         max-width: 150px;
     }
 
-    .signup-image img {
+    .auth-image img {
         max-height: 100px;
     }
 }

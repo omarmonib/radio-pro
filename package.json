@@ -15,11 +15,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "homepage": "https://omarmonib.github.io/radio-pro",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +47,7 @@
     "@eslint/js": "^9.11.1",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.36.1",
+    "gh-pages": "^6.1.1",
     "globals": "^15.9.0"
   }
 }
