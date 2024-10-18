@@ -1,10 +1,10 @@
 .footer {
-  background-color: #099940;
   color: white;
   text-align: center;
   padding: 10px 0;
   width: 100vw;
   box-sizing: border-box;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 

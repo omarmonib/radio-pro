@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Posts.css';
+import { FaPaperPlane } from 'react-icons/fa'; 
+import '../styles/Posts.css';
 
 const Posts = ({ onPostAdded, userName }) => {
   const [posts, setPosts] = useState([
@@ -23,17 +24,18 @@ const Posts = ({ onPostAdded, userName }) => {
   const handleChange = ({ target: { value } }) => 
     setNewPost({ ...newPost, content: value });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newPost.content) {
+  const handlePostSubmit = (e) => {
+    if (e.key === 'Enter' && newPost.content.trim()) {
+      e.preventDefault();
       setPosts([{ userName, content: newPost.content, comments: [], reactions: { like: 0, laugh: 0, sad: 0 } }, ...posts]);
       setNewPost({ content: '' });
       onPostAdded();
     }
   };
 
-  const handleAddComment = (index) => {
-    if (newComment.trim()) {
+  const handleAddComment = (index, e) => {
+    if (e.key === 'Enter' && newComment.trim()) {
+      e.preventDefault();
       const updatedPosts = [...posts];
       updatedPosts[index].comments.push(newComment);
       setPosts(updatedPosts);
@@ -49,15 +51,18 @@ const Posts = ({ onPostAdded, userName }) => {
 
   return (
     <div className="posts-section">
-      <form onSubmit={handleSubmit} className="post-form">
+      <form className="post-form">
         <textarea 
           name="content" 
           placeholder={`Write what benefits your colleague ENG ${userName}`} 
           value={newPost.content} 
           onChange={handleChange} 
+          onKeyDown={handlePostSubmit}
           required 
         />
-        <button type="submit">Add Post</button>
+        <button type="button" onClick={() => handlePostSubmit({ key: 'Enter' })}>
+          <FaPaperPlane />
+        </button>
       </form>
 
       {posts.map((post, index) => (
@@ -77,12 +82,18 @@ const Posts = ({ onPostAdded, userName }) => {
             {post.comments.map((comment, idx) => (
               <p key={idx}>{comment}</p>
             ))}
-            <textarea 
-              placeholder="أكتب تعليق..." 
-              value={newComment} 
-              onChange={(e) => setNewComment(e.target.value)} 
-            />
-            <button onClick={() => handleAddComment(index)}>Add Comment</button>
+
+            <div className="comment-input-wrapper">
+              <textarea 
+                placeholder="اكتب تعليق..." 
+                value={newComment} 
+                onChange={(e) => setNewComment(e.target.value)} 
+                onKeyDown={(e) => handleAddComment(index, e)}
+              />
+              <button type="button" onClick={() => handleAddComment(index, { key: 'Enter' })} disabled={!newComment.trim()}>
+                <FaPaperPlane />
+              </button>
+            </div>
           </div>
         </div>
       ))}
