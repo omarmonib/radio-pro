@@ -29,22 +29,20 @@
 }
 
 .post h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: bolder;
   color: #333;
+  margin: auto;
 }
 
 .post p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: normal;
   color: #444;
   padding: 10px 15px;
-  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
   margin: 10px 0;
   line-height: 1.6;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* أنماط أزرار الإجراءات */

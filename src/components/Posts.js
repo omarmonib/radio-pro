@@ -21,21 +21,24 @@ const Posts = ({ onPostAdded, userName }) => {
   const [newPost, setNewPost] = useState({ content: '' });
   const [newComment, setNewComment] = useState('');
 
+  // دالة لتحديث محتوى المنشور الجديد
   const handleChange = ({ target: { value } }) => 
     setNewPost({ ...newPost, content: value });
 
-  const handlePostSubmit = (e) => {
-    if (e.key === 'Enter' && newPost.content.trim()) {
-      e.preventDefault();
+  // دالة لإضافة منشور جديد
+  const handlePostSubmit = (e, isButtonClick = false) => {
+    if ((e.key === 'Enter' || isButtonClick) && newPost.content.trim()) {
+      if (!isButtonClick) e.preventDefault(); // منع إعادة تحميل الصفحة عند الضغط على Enter
       setPosts([{ userName, content: newPost.content, comments: [], reactions: { like: 0, laugh: 0, sad: 0 } }, ...posts]);
       setNewPost({ content: '' });
       onPostAdded();
     }
   };
 
-  const handleAddComment = (index, e) => {
-    if (e.key === 'Enter' && newComment.trim()) {
-      e.preventDefault();
+  // دالة لإضافة تعليق على منشور
+  const handleAddComment = (index, e, isButtonClick = false) => {
+    if ((e.key === 'Enter' || isButtonClick) && newComment.trim()) {
+      if (!isButtonClick) e.preventDefault(); // منع إعادة تحميل الصفحة عند الضغط على Enter
       const updatedPosts = [...posts];
       updatedPosts[index].comments.push(newComment);
       setPosts(updatedPosts);
@@ -43,6 +46,7 @@ const Posts = ({ onPostAdded, userName }) => {
     }
   };
 
+  // دالة لإضافة تفاعل على منشور
   const handleReaction = (index, type) => {
     const updatedPosts = [...posts];
     updatedPosts[index].reactions[type]++;
@@ -57,10 +61,12 @@ const Posts = ({ onPostAdded, userName }) => {
           placeholder={`Write what benefits your colleague ENG ${userName}`} 
           value={newPost.content} 
           onChange={handleChange} 
-          onKeyDown={handlePostSubmit}
+          onKeyDown={(e) => handlePostSubmit(e)} 
           required 
         />
-        <button type="button" onClick={() => handlePostSubmit({ key: 'Enter' })}>
+        <button 
+          type="button" 
+          onClick={(e) => handlePostSubmit(e, true)}> {/* تمرير true عند الضغط على الزر */}
           <FaPaperPlane />
         </button>
       </form>
@@ -88,9 +94,12 @@ const Posts = ({ onPostAdded, userName }) => {
                 placeholder="اكتب تعليق..." 
                 value={newComment} 
                 onChange={(e) => setNewComment(e.target.value)} 
-                onKeyDown={(e) => handleAddComment(index, e)}
+                onKeyDown={(e) => handleAddComment(index, e)} 
               />
-              <button type="button" onClick={() => handleAddComment(index, { key: 'Enter' })} disabled={!newComment.trim()}>
+              <button 
+                type="button" 
+                onClick={(e) => handleAddComment(index, e, true)} 
+                disabled={!newComment.trim()}>
                 <FaPaperPlane />
               </button>
             </div>
