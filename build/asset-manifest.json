@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/omarmonib/radio-pro.git/static/css/main.b934e48d.css",
+    "main.js": "/omarmonib/radio-pro.git/static/js/main.23711f13.js",
+    "static/media/logo.png": "/omarmonib/radio-pro.git/static/media/logo.4d094a57bae529b501aa.png",
+    "static/media/logo1.png": "/omarmonib/radio-pro.git/static/media/logo1.161a866727990012de99.png",
+    "index.html": "/omarmonib/radio-pro.git/index.html",
+    "main.b934e48d.css.map": "/omarmonib/radio-pro.git/static/css/main.b934e48d.css.map",
+    "main.23711f13.js.map": "/omarmonib/radio-pro.git/static/js/main.23711f13.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b934e48d.css",
+    "static/js/main.23711f13.js"
+  ]
+}
