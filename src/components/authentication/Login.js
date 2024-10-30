@@ -24,12 +24,12 @@ const Login = ({ onLogin }) => {
         if (username === 'omar' && password === '123456') {
             if (rememberMe) {
                 localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userName', username);  // تخزين اسم المستخدم في localStorage
+                localStorage.setItem('userName', username);
             }
-            onLogin(username);  // تمرير اسم المستخدم إلى App.js
+            onLogin(username);
             navigate('/');
         } else {
-            console.log('Invalid login');
+            alert('Invalid login');
         }
     };
 

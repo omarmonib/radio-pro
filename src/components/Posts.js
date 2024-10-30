@@ -21,24 +21,21 @@ const Posts = ({ onPostAdded, userName }) => {
   const [newPost, setNewPost] = useState({ content: '' });
   const [newComment, setNewComment] = useState('');
 
-  // دالة لتحديث محتوى المنشور الجديد
   const handleChange = ({ target: { value } }) => 
     setNewPost({ ...newPost, content: value });
 
-  // دالة لإضافة منشور جديد
   const handlePostSubmit = (e, isButtonClick = false) => {
     if ((e.key === 'Enter' || isButtonClick) && newPost.content.trim()) {
-      if (!isButtonClick) e.preventDefault(); // منع إعادة تحميل الصفحة عند الضغط على Enter
+      if (!isButtonClick) e.preventDefault();
       setPosts([{ userName, content: newPost.content, comments: [], reactions: { like: 0, laugh: 0, sad: 0 } }, ...posts]);
       setNewPost({ content: '' });
       onPostAdded();
     }
   };
 
-  // دالة لإضافة تعليق على منشور
   const handleAddComment = (index, e, isButtonClick = false) => {
     if ((e.key === 'Enter' || isButtonClick) && newComment.trim()) {
-      if (!isButtonClick) e.preventDefault(); // منع إعادة تحميل الصفحة عند الضغط على Enter
+      if (!isButtonClick) e.preventDefault();
       const updatedPosts = [...posts];
       updatedPosts[index].comments.push(newComment);
       setPosts(updatedPosts);
@@ -46,7 +43,6 @@ const Posts = ({ onPostAdded, userName }) => {
     }
   };
 
-  // دالة لإضافة تفاعل على منشور
   const handleReaction = (index, type) => {
     const updatedPosts = [...posts];
     updatedPosts[index].reactions[type]++;
@@ -66,7 +62,7 @@ const Posts = ({ onPostAdded, userName }) => {
         />
         <button 
           type="button" 
-          onClick={(e) => handlePostSubmit(e, true)}> {/* تمرير true عند الضغط على الزر */}
+          onClick={(e) => handlePostSubmit(e, true)}>
           <FaPaperPlane />
         </button>
       </form>
