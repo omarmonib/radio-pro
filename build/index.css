@@ -3,7 +3,14 @@
   }
 
 body {
-    margin: 2px;
+    margin: 1px;
     width: 100vw;
     height: 100vh;
+    font-family: "DynaPuff", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 }
+
