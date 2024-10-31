@@ -2,7 +2,7 @@
   "name": "your-project-name",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/omarmonib/radio-pro.git",
+  "homepage": "https://omarmonib.github.io/radio-pro/",
   "dependencies": {
     "draft-js": "^0.11.7",
     "gh-pages": "^4.0.0",
