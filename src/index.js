@@ -5,7 +5,7 @@ import App from './pages/App';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <Router basename="/omarmonib/radio-pro.git">
+  <Router basename="/radio-pro">
     <App />
   </Router>
 );

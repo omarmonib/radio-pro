@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/radio-pro/static/css/main.ca0e224b.css",
-    "main.js": "/radio-pro/static/js/main.b6b320dc.js",
+    "main.js": "/radio-pro/static/js/main.fcdcb0aa.js",
     "static/media/logo.png": "/radio-pro/static/media/logo.4d094a57bae529b501aa.png",
     "static/media/logo1.png": "/radio-pro/static/media/logo1.161a866727990012de99.png",
     "index.html": "/radio-pro/index.html",
     "main.ca0e224b.css.map": "/radio-pro/static/css/main.ca0e224b.css.map",
-    "main.b6b320dc.js.map": "/radio-pro/static/js/main.b6b320dc.js.map"
+    "main.fcdcb0aa.js.map": "/radio-pro/static/js/main.fcdcb0aa.js.map"
   },
   "entrypoints": [
     "static/css/main.ca0e224b.css",
-    "static/js/main.b6b320dc.js"
+    "static/js/main.fcdcb0aa.js"
   ]
 }
